@@ -1,18 +1,3 @@
-- name: Install dependencies
-  run: |
-    cd GitAction
-    mvn install -DskipTests=true
-
-- name: Build project
-  run: |
-    cd GitAction
-    mvn package
-
-- name: Run unit tests
-  run: |
-    cd GitAction
-    mvn testname: CI Workflow
-
 on:
   push: 
     branches:
