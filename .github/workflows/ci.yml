@@ -1,4 +1,17 @@
-name: CI Workflow
+- name: Install dependencies
+  run: |
+    cd GitAction
+    mvn install -DskipTests=true
+
+- name: Build project
+  run: |
+    cd GitAction
+    mvn package
+
+- name: Run unit tests
+  run: |
+    cd GitAction
+    mvn testname: CI Workflow
 
 on:
   push: 
@@ -22,10 +35,16 @@ jobs:
          java-version: '17'
 
     - name: Install dependencies
-      run: mvn install -DskipTests=true
-
-    - name: Run unit tests
-      run: mvn package
+      run: |
+        cd GitAction
+        mvn install -DskipTests=true
 
     - name: Build project
-      run: mvn test
+      run: |
+        cd GitAction
+        mvn package
+
+    - name: Run unit tests
+      run: |
+        cd GitAction
+        mvn test
